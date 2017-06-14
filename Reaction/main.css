@@ -42,3 +42,14 @@ canvas {
 	margin-top:30px;
 	font-size:43px;
 }
+.sweet-alert.sweetalert-lg {
+	width: 700px;
+	left: 40%;
+	top:30%;
+}
+.sweet-alert.sweetalert-lg > h2 {
+	font-size: 40px;
+}
+.sweet-alert.sweetalert-lg > p {
+	font-size: 30px;
+}

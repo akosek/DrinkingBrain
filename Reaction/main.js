@@ -79,17 +79,35 @@ $( window ).on( "load", function(){
           console.log(endSeconds);
 
           console.log(reactionTime);
-          alert("Your reaction time is " + reactionTime);
+
+          swal({
+            title: "Good job!",
+            text: "Your reaction time is " + reactionTime,
+            type: 'success',
+            customClass: 'sweetalert-lg'
+          });
+
+      //    swal("Good job!", "Your reaction time is " + reactionTime, "success")
+
 
         clearTimeout(timerBackground);
 
       }
 
       else {
-          alert("Not this time");
+          swal({
+            title: "Oooops!",
+            text: "Not this time, keep playing!",
+            customClass: 'sweetalert-lg',
+            type: "error"
+          });
+
+        //  swal("Oops!", "Not this time, keep playing!", "error");
+
       }
 
 		})
+
 
 });
 

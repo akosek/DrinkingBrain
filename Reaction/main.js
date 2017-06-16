@@ -5,130 +5,174 @@ colorName[0] = "Blue";
 colorName[1] = "Red";
 colorName[2] = "Green";
 colorName[3] = "Yellow";
-colorName[4] = "Orange";
-colorName[5] = "Pink";
-colorName[6] = "Purple";
+colorName[4] = "Purple";
 
  var colorVisual = [
  {key:"Blue", value: "#74D4ED"},
  {key: "Red", value: "#E63947",},
  {key: "Green", value: "#32746D"},
  {key: "Yellow", value:"#FFD23F"},
- {key: "Orange", value: "#FF7145", },
- {key: "Pink", value: "#FF00BF"},
  {key: "Purple", value: "#9A60FF"}
 ];
 
 var timerBackground;
-var goalColor = colorName[Math.floor(Math.random()*colorName.length)];
+var goalColorIdx;
+var goalColor;
+var rand;
 
-console.log ("Click when this color appears " + goalColor);
+var reactionTime;
+var endTime;
+var startTime;
+var endSeconds;
+var firstSeconds;
+var maxNumChanges = 7;
+var numChanges;
+var numRounds = 5;
+var round = 0;
+var scores = [];
 
-$( window ).on( "load", function(){
+function getColorTarget(){
 
-	var reactionTime;
-  var endTime;
-  var startTime;
-  var endSeconds;
-  var firstSeconds;
+    goalColorIdx = getRandomInt(0, colorName.length - 1)
+    goalColor = colorName[goalColorIdx];
+    console.log ("Click when this color appears " + goalColor);
+}
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-  $('#colorToFind').append(goalColor + " appears");
-  changeColor();
+function add(a, b) {
+    return a + b;
+}
 
+function changeColor(){
 
-  function changeColor(){
-      var rand = Math.floor(Math.random()*colorVisual.length);
-
-      $('#body-all').css("background-color", colorVisual[rand].value);
-      currentColor = this.colorVisual[rand].key;
-      console.log("Color now is " + currentColor);
-      console.log("Your are looking for " + goalColor);
-
-      timerBackground = setTimeout(changeColor, Math.random() * 4500);
-
-
-      if (goalColor === currentColor){
-
-      startTime = new Date().getTime();
-      firstSeconds = ((startTime/1000)%60).toFixed(2);
-
-      console.log(goalColor + " is   " + currentColor);
-
-      }
-
-        else {
-          console.log("FAILED");
-
+    if (numChanges == 0){
+        do {rand = getRandomInt(0, colorVisual.length - 1);} while (rand == goalColorIdx);
+    }
+    else{
+        if (numChanges == maxNumChanges){
+            rand = goalColorIdx;
         }
-  }
+        else{
+            rand = getRandomInt(0, colorVisual.length - 1);
+        }
+    }
+
+    $('#body-all').css("background-color", colorVisual[rand].value);
+    numChanges += 1;
+
+    if (rand == goalColorIdx){
+        startTime = new Date().getTime();
+        firstSeconds = ((startTime/1000)).toFixed(2);
+    }
+    else{
+        timerBackground = setTimeout(changeColor, getRandomInt(500,3000));
+    }
+}
+
+$(window).on("load", function oneRound(){
+
+             numChanges = 0;
+             getColorTarget();
+
+             document.getElementById("colorToFind").innerHTML = goalColor + " appears";
+             changeColor();
+
+             document.getElementById("to-click").addEventListener("click", mouseClick);
+
+             function mouseClick(){
+
+                if (rand == goalColorIdx){
+
+                    endTime = new Date().getTime();
+                    endSeconds = (((endTime/1000)).toFixed(2));
+                    console.log(endTime);
+                    reactionTime = ((endSeconds - firstSeconds).toFixed(2));
 
 
+                    console.log(firstSeconds);
+                    console.log(endSeconds);
+                    console.log(reactionTime);
 
-		$('.chronoExample #stop').click(function (startTime){
+                    swal({
+                         title: "Good job!",
+                         text: "Your reaction time is " + reactionTime,
+                         type: 'success',
+                         customClass: 'sweetalert-lg'
+                         },
+                         function (){
+                            document.getElementById("to-click").removeEventListener("click", mouseClick);
+                            if (reactionTime<=0.15){
+                                scores[round]=20;
+                            }
+                            else{
+                                if (reactionTime>=5.15){
+                                    scores[round]=0;
+                                }
+                                else{
+                                    scores[round]=20-((reactionTime-0.15)*4);
+                                }
+                            }
 
-      if (goalColor === currentColor){
+                            round +=1;
 
-           endTime = new Date().getTime();
-           endSeconds = (((endTime/1000)%60).toFixed(2));
+                            if (round < numRounds){
+                                oneRound();
+                            }
+                            else{
+                                console.log("end of the game");
+                                for (ii in scores){
+                                    console.log(scores[ii]);
+                                }
 
-           reactionTime = ((endSeconds - firstSeconds).toFixed(2));
-           Math.abs(reactionTime);
+                                var finalScore = scores.reduce(add,0);
 
-          console.log(firstSeconds);
-          console.log(endSeconds);
+                                swal({
+                                  title: "Good job!",
+                                  text: "Your final score is " + finalScore,
+                                  type: 'success',
+                                  customClass: 'sweetalert-lg'
+                                });
 
-          console.log(reactionTime);
+                                console.log("total score " + finalScore);
+                            }
+                    });
+                }
+                else {
+                    clearTimeout(timerBackground);
+                    swal({
+                         title: "Oooops!",
+                         text: "Not this time, keep playing!",
+                         customClass: 'sweetalert-lg',
+                         type: "error"
+                         },
+                         function (){
+                            document.getElementById("to-click").removeEventListener("click", mouseClick);
+                            scores[round]=0;
 
-          swal({
-            title: "Good job!",
-            text: "Your reaction time is " + reactionTime,
-            type: 'success',
-            customClass: 'sweetalert-lg'
-          });
+                            round +=1;
 
-      //    swal("Good job!", "Your reaction time is " + reactionTime, "success")
+                            if (round < numRounds){
+                                oneRound();
+                            }
+                            else{
+                                console.log("end of the game");
+                                for (ii in scores){
+                                    console.log(scores[ii]);
 
-
-        clearTimeout(timerBackground);
-
-      }
-
-      else {
-          swal({
-            title: "Oooops!",
-            text: "Not this time, keep playing!",
-            customClass: 'sweetalert-lg',
-            type: "error"
-          });
-
-        //  swal("Oops!", "Not this time, keep playing!", "error");
-
-      }
-
-		})
-
+                                    swal({
+                                      title: "Good job!",
+                                      text: "Your final score is " + finalScore,
+                                      type: 'success',
+                                      customClass: 'sweetalert-lg'
+                                    });
+                                }
+                                console.log("total score " + scores.reduce(add, 0));
+                            }
+                    });
+                }
+             }
 
 });
-
-
-
-
-//  function checkColor(goalColor, currentColor){
-//    console.log(goalColor);
-//    console.log(currentColor);
-  //  if (goalColor === currentColor){
-  //    console.log(goalColor + " to nie  " + currentColor);
-  //  }
-  //    else {
-  //      console.log("sraka");
-  //    }
-//  }
-
-
-
-//function changeWord (){
-//	var rand2 = Math.floor(Math.random()*colorName.length);
-//	$('#word').val(colorName[rand2]);
-//	timer = setTimeout(changeWord, Math.random() * 4000);
-//}

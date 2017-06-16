@@ -18,8 +18,6 @@ h2 small {
   color:#888;
   display:block;
 }
-.footer 	{ text-align:center; }
-.footer a  { color:#53B2C8; }
 
 /* form starting stylings ------------------------------- */
 .group 			  {
@@ -65,7 +63,7 @@ input:focus ~ label, input:valid ~ label 		{
   width:0;
   bottom:1px;
   position:absolute;
-  background:#5264AE;
+  background:#E6537D;
   transition:0.5s ease all;
   -moz-transition:0.5s ease all;
   -webkit-transition:0.5s ease all;
@@ -102,14 +100,14 @@ input:focus ~ .highlight {
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#E6537D; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#E6537D; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
-	from { background:#5264AE; }
+	from { background:#E6537D; }
   to 	{ width:0; background:transparent; }
 }

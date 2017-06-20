@@ -18,15 +18,25 @@ var CountDown = 5
 var attemptCount = 0;
 var rightBall = 0;
 
-//adapt canvas size
-ctx.canvas.width  = window.innerWidth;
-ctx.canvas.height = window.innerHeight;
+console.log("ratio " + window.innerHeight/window.innerWidth);
 
-r = Math.floor(window.innerWidth * window.innerHeight * 0.00004);
-speed_lim = Math.floor(window.innerWidth * window.innerHeight * 0.00001);
-console.log("height: " + window.innerHeight);
-console.log("width: " + window.innerWidth);
-console.log("area: " + window.innerWidth * window.innerHeight);
+if (window.innerHeight > window.innerWidth){
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerWidth * 0.75;
+}else{
+    ctx.canvas.height = window.innerHeight;
+    ctx.canvas.width  = window.innerHeight * 1.33;
+}
+
+//adapt canvas size
+//ctx.canvas.width  = window.innerWidth;
+//ctx.canvas.height = window.innerHeight;
+
+r = Math.floor(ctx.canvas.width * ctx.canvas.height * 0.00006);
+speed_lim = Math.floor(ctx.canvas.width * ctx.canvas.height * 0.00002);
+console.log("height: " + ctx.canvas.height);
+console.log("width: " + ctx.canvas.width);
+console.log("area: " + ctx.canvas.width * ctx.canvas.height);
 console.log("radius: " + r);
 console.log("speedlim: " + speed_lim);
 
@@ -64,11 +74,11 @@ function mouseClick(e) {
 
         if (distance < r){
             if (i<num_real_balls[round]){
-                drawBall(x[i]-dx[i],y[i]-dy[i],"green");
+                drawBall(x[i]-dx[i],y[i]-dy[i],"#83BF17");
                 rightBall += 1;
             }
             else{
-                drawBall(x[i]-dx[i],y[i]-dy[i],"red");
+                drawBall(x[i]-dx[i],y[i]-dy[i],"#BB0F00");
             }
             pressed[i] = true;
             attemptCount += 1;
@@ -85,6 +95,7 @@ function mouseClick(e) {
             console.log("end of the game");
             var score = (rightBall/num_real_balls.reduce(add, 0))*100;
             console.log("Your score is: " + score);
+            setTimeout("window.location.href = 'http://www.drinkingbrain.com/Attention/user.html';", 2000);
 
         }
     }
@@ -167,8 +178,8 @@ function getRandomInt(min, max) {
 function drawScore() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     var textSize = Math.floor(canvas.width * 0.05)
-    ctx.font = textSize.toString() + "px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.font = textSize.toString() + "px Patrick Hand SC";
+    ctx.fillStyle = "#00CCD6";
     ctx.textAlign = "center";
     ctx.fillText("Next round starts in " + CountDown + " seconds",canvas.width/2, (canvas.height/2));
 
@@ -185,11 +196,11 @@ function drawBall(x,y,color) {
 
 function drawInstructions(){
 
-    var textSize = Math.floor(canvas.width * 0.04)
-    ctx.font = textSize.toString() + "px Arial";
-    ctx.fillStyle = "#0095DD";
+    var textSize = Math.floor(canvas.width * 0.03)
+    ctx.font = textSize.toString() + "px Patrick Hand SC";
+    ctx.fillStyle = "#00CCD6";
     ctx.textAlign = "center";
-    ctx.fillText("Follow the circle until it stops moving, then tap on it", canvas.width/2, canvas.height*0.07);
+    ctx.fillText("Follow the circle until it stops moving, then tap on it", canvas.width/2, canvas.height*0.05);
 }
 
 function draw() {
@@ -200,7 +211,7 @@ function draw() {
     }
 
     for (i = 0; i < num_total_balls; i++) {
-        drawBall(x[i],y[i],"#0095DD");
+        drawBall(x[i],y[i],"#00CCD6");
 
         //colision with bounds
         if(x[i] + dx[i] > canvas.width-r || x[i] + dx[i] < r) {

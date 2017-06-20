@@ -7,10 +7,10 @@ colorName[2] = "Green";
 colorName[3] = "Yellow";
 colorName[4] = "Purple";
 
- var colorVisual = [
- {key:"Blue", value: "#74D4ED"},
+var colorVisual = [
+ {key:"Blue", value: "#00BFFF"},
  {key: "Red", value: "#E63947",},
- {key: "Green", value: "#32746D"},
+ {key: "Green", value: " #83BF17"},
  {key: "Yellow", value:"#FFD23F"},
  {key: "Purple", value: "#9A60FF"}
 ];
@@ -80,7 +80,7 @@ $(window).on("load", function oneRound(){
              document.getElementById("colorToFind").innerHTML = goalColor + " appears";
              changeColor();
 
-             document.getElementById("to-click").addEventListener("click", mouseClick);
+             document.getElementById("stop").addEventListener("click", mouseClick);
 
              function mouseClick(){
 
@@ -103,7 +103,7 @@ $(window).on("load", function oneRound(){
                          customClass: 'sweetalert-lg'
                          },
                          function (){
-                            document.getElementById("to-click").removeEventListener("click", mouseClick);
+                            document.getElementById("stop").removeEventListener("click", mouseClick);
                             if (reactionTime<=0.15){
                                 scores[round]=20;
                             }
@@ -122,21 +122,18 @@ $(window).on("load", function oneRound(){
                                 oneRound();
                             }
                             else{
+
                                 console.log("end of the game");
                                 for (ii in scores){
                                     console.log(scores[ii]);
                                 }
 
-                                var finalScore = scores.reduce(add,0);
+                                function userPage(){
+                                      window.location.href = 'http://www.drinkingbrain.com/Reaction/user.html';
+                                      console.log("total score " + scores.reduce(add, 0));
+                                }
 
-                                swal({
-                                  title: "Good job!",
-                                  text: "Your final score is " + finalScore,
-                                  type: 'success',
-                                  customClass: 'sweetalert-lg'
-                                });
 
-                                console.log("total score " + finalScore);
                             }
                     });
                 }
@@ -149,7 +146,7 @@ $(window).on("load", function oneRound(){
                          type: "error"
                          },
                          function (){
-                            document.getElementById("to-click").removeEventListener("click", mouseClick);
+                            document.getElementById("stop").removeEventListener("click", mouseClick);
                             scores[round]=0;
 
                             round +=1;
@@ -158,18 +155,18 @@ $(window).on("load", function oneRound(){
                                 oneRound();
                             }
                             else{
+
+
                                 console.log("end of the game");
                                 for (ii in scores){
                                     console.log(scores[ii]);
-
-                                    swal({
-                                      title: "Good job!",
-                                      text: "Your final score is " + finalScore,
-                                      type: 'success',
-                                      customClass: 'sweetalert-lg'
-                                    });
                                 }
-                                console.log("total score " + scores.reduce(add, 0));
+
+                                function userPage(){
+                                  window.location.href = 'http://www.drinkingbrain.com/Reaction/user.html';
+                                    console.log("total score " + scores.reduce(add, 0));
+                                }
+
                             }
                     });
                 }

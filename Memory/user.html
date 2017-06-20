@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Memory User Score</title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
+        <link rel="stylesheet" href="user.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <h3 class="game-title">Memory</h3>
+            <form id="insert_data">
+
+              <div class="group">
+                <input type="text" required ="required" name="score" id="score" class="form-input"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="score">Your Score:</label>
+              </div>
+
+              <div class="group">
+                <input type="text" required ="required" name="name" id="name" class="form-input"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="name">Name</label>
+              </div>
+              <div class="group">
+                <input type="text" required="required" name="alcohol" id="alcohol" class="form-input"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="alcohol">Alcohol level</label>
+              </div>
+              <div class="group">
+                <input type="text" required ="required" name="age" id="age" class="form-input"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="age">Age</label>
+              </div>
+
+
+              <input type="button" name="submit" id="submit" value="Submit"/>
+            </form>
+            <div id="return"></div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
+<script>
+    $(document).ready(function(){
+        $('#submit').click(function(){
+            var name = $('#name').val();
+            var alcohol = $('#alcohol').val();
+            var age = $('#age').val();
+            var score = $('#score').val();
+            if(name == '' || alcohol == '' || age == '' || score == '')
+            {
+                $('#return').html('<h4 style="color:red;">Required All Fields..</h4>')
+            }
+            else
+            {
+                $.ajax({
+                    url:"insert.php",
+                    method:"POST",
+                    data:$('#insert_data').serialize(),
+                    success: function(data){
+                        $('form').trigger("reset");
+                        $('#return').fadeIn().html(data);
+            //            setTimeout(function(){
+            //                $('#return').fadeOut("slow");
+            //            },6000);
+                    }
+                });
+                console.log("entra en caca");
+            }
+        });
+    });
+</script>

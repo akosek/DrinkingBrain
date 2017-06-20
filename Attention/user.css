@@ -3,13 +3,14 @@ body
 .container 		{
   font-family: 'Patrick Hand SC', cursive;
   width:800px;
-  margin:30px auto 0;
+/*  margin:30px auto 0; */
   display:block;
   background:#FFF;
   padding:10px 50px 50px;
 
+
 }
-h2 		 {
+h2{
   text-align:center;
   margin-bottom:50px;
 }
@@ -18,12 +19,14 @@ h2 small {
   color:#888;
   display:block;
 }
+
 .game-title{
 	text-align: center;
-  color:#B9006E;
+  color:#00CCD6;
   font-size:60px;
   margin-bottom: 40px;
 }
+
 
 /* form starting stylings ------------------------------- */
 .group 			  {
@@ -58,7 +61,7 @@ label 				 {
 .form-input:focus ~ label, .form-input:valid ~ label 		{
   top:-20px;
   font-size:30px;
-  color: #B9006E;
+  color:#00CCD6;
 }
 
 /* BOTTOM BARS ================================= */
@@ -69,7 +72,7 @@ label 				 {
   width:0;
   bottom:1px;
   position:absolute;
-  background: #B9006E;
+  background: #00CCD6;
   transition:0.5s ease all;
   -moz-transition:0.5s ease all;
   -webkit-transition:0.5s ease all;
@@ -106,14 +109,14 @@ label 				 {
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes .form-inputHighlighter {
-	from { background:#E6537D; }
+	from { background:#00CCD6; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes .form-inputHighlighter {
-	from { background:#E6537D; }
+	from { background:#00CCD6; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes .form-inputHighlighter {
-	from { background:#E6537D; }
+	from { background:#00CCD6; }
   to 	{ width:0; background:transparent; }
 }

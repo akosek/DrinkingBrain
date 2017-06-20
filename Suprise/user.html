@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Coordination User Score</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
+        <link rel="stylesheet" href="user.css">
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+					<div class="col-xs-12 col-md-12">
+						 <h3 class="game-title">Coordination</h3>
+					</div>
+          <div class="col-xs-12 col-md-12">
+						<form id="insert_data">
+							<div class="group">
+								<input type="text" required ="required" name="score" id="score" class="form-input"/>
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label for="score">Your Score:</label>
+							</div>
+
+              <div class="group">
+                <input type="text" required ="required" name="name" id="name" class="form-input"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="name">Name</label>
+              </div>
+              <div class="group">
+                <input type="text" required="required" name="alcohol" id="alcohol" class="form-input"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="alcohol">Alcohol level</label>
+              </div>
+              <div class="group">
+                <input type="text" required ="required" name="age" id="age" class="form-input"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="age">Age</label>
+              </div>
+
+
+              <input type="button" name="submit" id="submit" value="Submit"/>
+            </form>
+            <div id="return"></div>
+          </div>
+        </div>
+      </div>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+			<script src="user.js"></script>
+    </body>
+</html>

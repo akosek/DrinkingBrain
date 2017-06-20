@@ -1,0 +1,191 @@
+<script>
+var users = new Array();
+
+window.onload = init;
+
+function init() {
+    var submitButton = document.getElementById("memoryButton");
+    submitButton.onclick = getFormData();
+    getData();
+}
+
+function getData(){
+	var request = new XMLHttpRequest();
+	request.open("GET", "user.json");
+	request.onreadystatechange = function() {
+			if (this.readyState == this.DONE && this.status == 200) {
+				if(this.responseText) {
+						parseUserForm(this.responseText);
+						addUserToPage();
+				}
+				else {
+					console.log("Error! Data is empty!");
+				}
+			}
+		};
+		request.send();
+	}
+
+function parseUserForm (userJSON){
+
+	if (userJSON == null || userJSON.trim() == "") {
+		return;
+	}
+	var userArray = JSON.parse(userJSON);
+	if (userArray.length == 0) {
+		console.log("Error: the user list array is empty!");
+		return;
+	}
+	for (var i = 0; i < userArray.length; i++) {
+		var userItem = userArray[i];
+		users.push(userItem);
+	}
+}
+
+function addUserToPage() {
+    var ul = document.getElementById("people");
+    for (var i = 0; i < users.length; i++) {
+        var userItem = users[i];
+        var li = document.createElement("li");
+        li.innerHTML =
+            userItem.alcohol + " user " + userItem.name + "age " + todoItem.age;
+        ul.appendChild(li);
+    }
+}
+
+
+
+function getFormData() {
+    var alcohol = document.getElementById("alcohol").value;
+    if (checkInputText(alcohol, "Please enter a alcohol level")) return;
+
+    var name = document.getElementById("name").value;
+    if (checkInputText(name, "Please enter name")) return;
+
+    var age = document.getElementById("age").value;
+    if (checkInputText(age, "Please enter age")) return;
+
+    console.log("New user: " + alcohol + ", name " + name + ", by: " + age);
+}
+
+function checkInputText(value, msg) {
+    if (value == null || value == "") {
+        alert(msg);
+        return true;
+    }
+    return false;
+}
+
+
+
+
+
+
+	       // Typical action to be performed when the document is ready:
+	      // document.getElementById("demo").innerHTML = xhttp.responseText;
+			//	console.log(response.users);
+/*
+			var output = '';
+
+			for(var i = 0; i < users.length; i++){
+				console.log(users[i]);
+
+				output += '<li>' + users[i].name +  "</li>"
+
+			}
+
+			document.getElementById("people").innerHTML = output;
+
+
+			}
+	};
+
+
+
+}
+
+xhttp.open("GET", "user.json", true);
+xhttp.send();
+
+
+
+
+/*
+$(document).ready(function () {
+	$("#memoryButton").click(function(){
+
+		var alco = $("#alcohol").val();
+		var name = $("#name").val();
+		var age = $("#age").val();
+
+		if(name == '' || alco == '' || age == ''){
+			$("#error_massage").html("All fields are required");
+		}
+		else {
+			$("#error_massage").html(" ");
+			$.ajax({
+				url: "insert.php",
+				method: "POST",
+				data: {alcohol:alcohol, name:name, age:age},
+				success: function(data){
+					$("#memoryForm").trigger("reset");
+					$("#success_message").fadeIn().html(data);
+					setTimeOut(function(){
+						$("#success_message").fadeOut(slow);
+
+
+					}, 2000);
+
+				}
+
+			});
+
+		}
+
+	});
+
+});
+
+/*
+
+$(document).ready(function(){
+	$("#memoryButton").click(function(e){
+
+		var jsonData = {};
+
+		var memoryData = $("#memoryForm").serializeArray();
+
+		$.each(memoryData, function() {
+			if (jsonData[this.name]) {
+				 if (!jsonData[this.name].push) {
+						 jsonData[this.name] = [jsonData[this.name]];
+				 }
+				 jsonData[this.name].push(this.value || '');
+		 } else {
+				 jsonData[this.name] = this.value || '';
+		 }
+
+
+ });
+
+ console.log(jsonData);
+	 $.ajax(
+	 {
+			 url : "action.php",
+			 type: "POST",
+			 data : jsonData,
+
+	 });
+	 e.preventDefault();
+
+	});
+
+
+});
+
+*/
+
+
+
+
+</script>

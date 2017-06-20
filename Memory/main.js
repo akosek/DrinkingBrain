@@ -1,4 +1,4 @@
-var numNum = [3, 4, 5, 6];
+var numNum = [3, 4, 5, 6, 7, 8, 9, 10];
 var numResult = [];
 var minLim = 1;
 var maxLim = 100;
@@ -7,10 +7,7 @@ var round = 0;
 var digits = 2;
 
 $( window ).on( "load", function(){
-
-
   runGame();
-
 
 });
 
@@ -32,8 +29,6 @@ function generateNumbers(){
         console.log(numResult[i]);
     }
 }
-
-
 
 
 function drawNumbers(){
@@ -73,14 +68,20 @@ function runGame(){
 
 function checkNumbers (){
   var userNumbers = document.getElementById('userTry').value;
+
   console.log(userNumbers);
 
-  goalString = numResult.toString();
-  goalString = goalString.replace(/,/g," ");
-  console.log("This is your goal " + goalString);
+    spaceString = numResult.toString();
+    spaceString = spaceString.replace(/[, ]+/g, " ");
 
+  // numResult = numResult.replace(/,/g," ");
 
-    if (userNumbers == goalString){
+    goalString = numResult.join("");
+    console.log("This is goalString " + goalString + "or " + spaceString);
+
+    //goalString = goalString.replace(/,/g," ");
+
+    if (userNumbers == goalString || userNumbers == spaceString ){
 
       swal({
         title: 'Good job!',
@@ -109,8 +110,14 @@ function checkNumbers (){
         //  text: "The right numbers: "  + goalString,
           type: 'error',
           customClass: 'sweetalert-lg'
-        });
+        },
+        function userPage(){
+          setTimeout("window.location.href = 'http://www.drinkingbrain.com/Memory/user.html';", 800);
+        }
+      );
 
+
+    //    window.location.href = "http://www.drinkingbrain.com";
         document.getElementById("userTry").value = "";
 
     }

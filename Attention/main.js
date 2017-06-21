@@ -179,7 +179,7 @@ function drawScore() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     var textSize = Math.floor(canvas.width * 0.05)
     ctx.font = textSize.toString() + "px Patrick Hand SC";
-    ctx.fillStyle = "#00CCD6";
+    ctx.fillStyle = "#0B99BC";
     ctx.textAlign = "center";
     ctx.fillText("Next round starts in " + CountDown + " seconds",canvas.width/2, (canvas.height/2));
 
@@ -198,7 +198,7 @@ function drawInstructions(){
 
     var textSize = Math.floor(canvas.width * 0.03)
     ctx.font = textSize.toString() + "px Patrick Hand SC";
-    ctx.fillStyle = "#00CCD6";
+    ctx.fillStyle = "#0B99BC";
     ctx.textAlign = "center";
     ctx.fillText("Follow the circle until it stops moving, then tap on it", canvas.width/2, canvas.height*0.05);
 }
@@ -211,7 +211,7 @@ function draw() {
     }
 
     for (i = 0; i < num_total_balls; i++) {
-        drawBall(x[i],y[i],"#00CCD6");
+        drawBall(x[i],y[i],"#0B99BC");
 
         //colision with bounds
         if(x[i] + dx[i] > canvas.width-r || x[i] + dx[i] < r) {

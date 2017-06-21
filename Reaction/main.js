@@ -8,11 +8,11 @@ colorName[3] = "Yellow";
 colorName[4] = "Purple";
 
 var colorVisual = [
- {key:"Blue", value: "#00BFFF"},
- {key: "Red", value: "#E63947",},
- {key: "Green", value: " #83BF17"},
- {key: "Yellow", value:"#FFD23F"},
- {key: "Purple", value: "#9A60FF"}
+ {key:"Blue", value: "#3498db"},
+ {key: "Red", value: "#C91B26",},
+ {key: "Green", value: "#83BF17"},
+ {key: "Yellow", value: "#f1c40f"},
+ {key: "Purple", value: "#4B256D"}
 ];
 
 var timerBackground;

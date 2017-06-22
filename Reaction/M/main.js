@@ -1,17 +1,16 @@
 var board = document.getElementById("#body-all");
 
-var colorName = [
-    "Blue",
-    "Red",
-    "Green",
-    "Yellow",
-    "Purple"
-];
+var colorName = new Array;
+colorName[0] = "Blue";
+colorName[1] = "Red";
+colorName[2] = "Green";
+colorName[3] = "Yellow";
+colorName[4] = "Purple";
 
 var colorVisual = [
  {key:"Blue", value: "#3498db"},
  {key: "Red", value: "#C91B26",},
- {key: "Green", value: " #83BF17"},
+ {key: "Green", value: "#83BF17"},
  {key: "Yellow", value: "#f1c40f"},
  {key: "Purple", value: "#4B256D"}
 ];
@@ -26,7 +25,7 @@ var endTime;
 var startTime;
 var endSeconds;
 var firstSeconds;
-var maxNumChanges = 5;
+var maxNumChanges = 7;
 var numChanges;
 var numRounds = 5;
 var round = 0;
@@ -69,7 +68,7 @@ function changeColor(){
         firstSeconds = ((startTime/1000)).toFixed(2);
     }
     else{
-        timerBackground = setTimeout(changeColor, getRandomInt(1000,2000));
+        timerBackground = setTimeout(changeColor, getRandomInt(500,3000));
     }
 }
 
@@ -80,9 +79,6 @@ $(window).on("load", function oneRound(){
 
              document.getElementById("colorToFind").innerHTML = goalColor + " appears";
              changeColor();
-             
-           
-
 
              document.getElementById("stop").addEventListener("click", mouseClick);
 
@@ -108,15 +104,15 @@ $(window).on("load", function oneRound(){
                          },
                          function (){
                             document.getElementById("stop").removeEventListener("click", mouseClick);
-                            if (reactionTime<=0.30){
+                            if (reactionTime<=0.15){
                                 scores[round]=20;
                             }
                             else{
-                                if (reactionTime>=5.30){
+                                if (reactionTime>=5.15){
                                     scores[round]=0;
                                 }
                                 else{
-                                    scores[round]=20-((reactionTime-0.30)*4);
+                                    scores[round]=20-((reactionTime-0.15)*4);
                                 }
                             }
 
@@ -132,11 +128,12 @@ $(window).on("load", function oneRound(){
                                     console.log(scores[ii]);
                                 }
 
-                                total_score = scores.reduce(add, 0).toFixed(2);
-                                console.log("total score " + total_score);
-                                localStorage.removeItem('score');
-                                localStorage.setItem('score',total_score);
-                                window.location.href = 'user.html';
+                                function userPage(){
+                                      window.location.href = 'http://www.drinkingbrain.com/Reaction/user.html';
+                                      console.log("total score " + scores.reduce(add, 0));
+                                }
+
+
                             }
                     });
                 }
@@ -165,12 +162,10 @@ $(window).on("load", function oneRound(){
                                     console.log(scores[ii]);
                                 }
 
-                                total_score = scores.reduce(add, 0).toFixed(2);
-                                console.log("total score " + total_score);
-                                localStorage.removeItem('score');
-                                localStorage.setItem('score',total_score);
-                                window.location.href = 'user.html';
-
+                                function userPage(){
+                                  window.location.href = 'http://www.drinkingbrain.com/Reaction/user.html';
+                                    console.log("total score " + scores.reduce(add, 0));
+                                }
 
                             }
                     });

@@ -12,6 +12,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/fonta/css/font-awesome.min.css"></link>
 
         <style>
             body {
@@ -32,16 +33,11 @@
     <nav class="navbar navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a href="#"><i class="fa fa-facebook fb-icon"></i></a>
+          <div class="container">
+          <a href="#"> <i class="fa fa-facebook-square fb-icon pull-right" aria-hidden="true"></i></a>
 
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
   <!--        <a class="navbar-brand navbar-name" href="#"><img src="img/logo.png"></a>-->
-
+        </div>
         </div>
 
       <!--  <div id="navbar" class="navbar-collapse collapse">
@@ -55,6 +51,7 @@
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>-->
         </div><!--/.navbar-collapse -->
+
 
     </nav>
   <div class="wrap">
@@ -71,14 +68,18 @@
               <div class="modal-dialog">
                 <div class="modal-content modal-content-one">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Reaction Time</h4>
+                    <button type="button" class="close" data-dismiss="modal" ><span aria-hidden="true" class="close-game">×</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title game-title" id="myModalLabel">Reaction Time</h4>
                   </div>
                   <div class="modal-body">
 
-                    <button class="btn btn-primary" onclick="window.location.href='Reaction/index.html'">Let's Go!</button>
+                    <h2 class="intruction-text intruction-text-up">Click the STOP button<br> when the color that will be asked, matches the background.<br> The score will be the sum of your reaction time.</h2>
+
+
+                      <button class="start-game-button action-button shadow animate red" onclick="window.location.href='Reaction/index.html'"> Let's Go!</button>
 
                   </div>
+
                 </div>
               </div>
             </div>
@@ -98,12 +99,13 @@
               <div class="modal-dialog">
                 <div class="modal-content modal-content-two">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Memory Span</h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="close-memory">×</span><span class="sr-only ">Close</span></button>
+                  <h4 class="modal-title memory-title" id="myModalLabel">Memory - digit Span</h4>
                   </div>
                   <div class="modal-body">
-
-                    <button class="btn btn-primary" onclick="window.location.href='Memory/index.html'">Let's Go!</button>
+                    <h2 class="small-descript intruction-text-up">Remember shown numbers and put them in the same order, that you have seen. In every next round more numbers will appear.</h2>
+                    <p class="more-instru"> (You can use space to separate numbers or not. Both are correct answers)</p>
+                    <button class="action-button shadow animate blue start-game-button" onclick="window.location.href='Memory/index.html'">Let's Go!</button>
 
                   </div>
                 </div>
@@ -127,13 +129,15 @@
                 <div class="modal-content modal-content-three">
 
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Attention</h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="close-attention">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title attention-title" id="myModalLabel">Attention</h4>
                   </div>
 
                   <div class="modal-body">
+                    <h3 class="intruction-text-up"> Follow the balls that will be shown at the beginning of every round. When all balls STOP moving,<br> click on the ones that you have been followed from the beginning.<br> In every next round more balls will appear for you to follow.
 
-                    <button class="btn btn-primary" onclick="window.location.href='Attention/index.html'">Let's Go</button>
+                    </h3>
+                    <button class="action-button shadow animate green" onclick="window.location.href='Attention/index.html'">Let's Go</button>
 
                   </div>
                 </div>
@@ -152,13 +156,13 @@
               <div class="modal-dialog">
                 <div class="modal-content modal-content-fourth">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Memory Span</h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="close-suprise">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title suprise-title" id="myModalLabel">Suprise</h4>
                   </div>
                   <div class="modal-body">
 
                     <div class="instruction-box">
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni</p>
+                      <p>GAME IS COMING ...</p>
                     </div>
 
                       <button class="btn btn-primary" onclick="window.location.href='Coordination/index.html'">Let's Go</button>
@@ -189,6 +193,7 @@
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/main.js"></script>
+
 
  <!--  <script src="https://use.fontawesome.com/30e39f4486.js"></script> -->
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

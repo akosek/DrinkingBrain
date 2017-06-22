@@ -17,14 +17,12 @@ html, body {
 nav{
 	background-color: white;
 }
-/*.fb-icon {
-	border-radius: 30%;
-	background-color: #3C599F;
-	width: 40px;
-	height: 40px;
-	line-height: 50px;
-	text-align: center;
-} */
+.fb-icon {
+	font-size: 30px;
+	margin-top: 10px;
+	color:#00C5DF;
+}
+
 footer {
   position: relative;
   margin-top: -50px; /* negative value of footer height */
@@ -62,6 +60,67 @@ footer {
 	color: white;
 }
 
+.game-title {
+	font-size: 35px;
+	text-shadow: -1px -1px 0 hsl(80, 70%, 35%),
+
+	             -2px -2px 1px hsl(80, 70%, 35%);}
+.start-game-button{
+	margin-top: 15%;
+}
+.intruction-text {
+	line-height: 45px;
+}
+.more-instru {
+	font-size: 17px;
+}
+.memory-title{
+	font-size: 35px;
+	text-shadow: -1px -1px 0 #DD1155,
+								-2px -2px 1px #DD1155;
+}
+
+.suprise-title {
+	font-size: 35px;
+	text-shadow: -1px -1px 0 #009698,
+							-2px -2px 1px #009698;
+}
+
+.attention-title {
+	font-size: 35px;
+	text-shadow: -1px -1px 0 #AA1155,
+
+							 -2px -2px 1px #AA1155;
+}
+.close-memory{
+	font-size:34px;
+	text-shadow: -1px -1px 0 #DD1155,
+
+							 -1px -2px 1px #DD1155;
+	line-height: 0;
+}
+.close-attention{
+	font-size:34px;
+	text-shadow: -1px -1px 0 #AA1155,
+
+							 -1px -2px 1px #AA1155;
+	line-height: 0;
+}
+.close-suprise{
+	font-size:34px;
+	text-shadow: -1px -1px 0 #009698,
+
+							 -1px -2px 1px #009698;
+	line-height: 0;								 
+}
+.close-game {
+	font-size:34px;
+	text-shadow: -1px -1px 0 hsl(80, 70%, 35%),
+
+	             -1px -2px 1px hsl(80, 70%, 35%);
+						 }
+					 }
+
 .modal-dialog {
       width: 100%;
       height: 100%;
@@ -87,7 +146,7 @@ footer {
 	background-color: #E6537D;
 }
 .modal-content-three {
-	background-color: #DC143C;
+	background-color: #e23053;
 }
 .modal-content-fourth {
 	background-color: #20B2AA;
@@ -134,4 +193,48 @@ footer {
 
 label{
 	font-size:19px;
+}
+/* starting buttons */
+.button-white {
+	border: 1px solid white;
+	padding: 20px;
+}
+
+.animate
+{
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
+
+.action-button
+{
+	position: relative;
+	padding: 7px 16px;
+	border-radius: 10px;
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 25px;
+	color: #FFF;
+	text-decoration: none;
+}
+.red {
+	background-color: #F6416C;
+	border-bottom: 5px solid #880044;
+	text-shadow: 0px -2px #F6416C;
+	margin-top: 10%;
+}
+.blue {
+	background-color: #2AB7CA;
+	border-bottom: 5px solid #0579C1;
+	text-shadow: 0px -2px #0579C1;
+	margin-top: 10%;
+}
+.green
+{
+	background-color: #82BF56;
+	border-bottom: 5px solid #669644;
+	text-shadow: 0px -2px #669644;
+	margin-top: 10%;
+}
+.intruction-text-up {
+	margin-top: 6px;
 }

@@ -16,8 +16,8 @@
 						<div class="panel-body">
 							<div class="pull-right">
 								<div class="btn-group">
-									<button type="button" class="btn btn-success btn-filter" data-target="reaction">Attention</button>
-									<button type="button" class="btn btn-warning btn-filter" data-target="memory">Memory</button>
+									<button type="button" class="btn btn-success btn-filter" data-target="reaction" id="attention">Attention</button>
+									<button type="button" class="btn btn-warning btn-filter" data-target="memory" id="memory">Memory</button>
 									<button type="button" class="btn btn-danger btn-filter" data-target="attention">Reaction</button>
 									<button type="button" class="btn btn-danger btn-filter" data-target="coordination">Coordination</button>
 									<button type="button" class="btn btn-default btn-filter" data-target="all">All</button>
@@ -35,8 +35,11 @@
     								</tr>
   								</thead>
 									<tbody id="show">
+											<tr  data-status="attention">
+											</tr>
 
-
+											<tr data-status="memory">
+											</tr>
 
 									</tbody>
 
@@ -51,15 +54,41 @@
 			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 
 			<script type="text/javascript">
-			
+
 			$(document).ready(function(){
-				setInterval(function(){
-					$("#show").load('data.php')
 
-				}, 3000);
 
+				$("#attention").click(function(memoryInterval){
+
+					$(this).data('clicked', true);
+					if($("#memory").data('clicked', true)){
+						$("#memory").data('clicked', false);
+						clearInterval(memoryInterval);
+					}
+					var attentionInterval= setInterval(function(){
+						$("#show").load('data.php')
+					}, 3000);
+
+				});
+
+					$("#memory").click(function(attentionInterval){
+
+ 					 		$(this).data('clicked', true);
+
+						 if($("#attention").data('clicked', true)){
+							 $('#attention').data('clicked', false);
+							 clearInterval(attentionInterval);
+						 }
+
+						 var memoryInterval= setInterval(function(){
+					 		$("#show").load('memory-data.php')
+					 	}, 3000);
+
+
+					});
 
 			});
+
 
 			</script>
 	</body>

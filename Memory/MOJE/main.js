@@ -112,9 +112,7 @@ function checkNumbers (){
           customClass: 'sweetalert-lg'
         },
         function userPage(){
-            localStorage.removeItem('score');
-            localStorage.setItem('score',digits);
-            setTimeout("window.location.href = 'user.html';", 800);
+          setTimeout("window.location.href = 'http://www.drinkingbrain.com/Memory/user.html';", 800);
         }
       );
 

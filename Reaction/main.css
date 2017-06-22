@@ -43,13 +43,17 @@ canvas {
 	font-size:73px;
 }
 .sweet-alert.sweetalert-lg {
-	width: 700px;
-	left: 40%;
+	width: 790px;
+	left: 36%;
 	top:30%;
 }
+.sweet-alert.sweetalert-lg button {
+	padding:26px 60px;
+	font-size: 25px;
+}
 .sweet-alert.sweetalert-lg > h2 {
-	font-size: 40px;
+	font-size: 46px;
 }
 .sweet-alert.sweetalert-lg > p {
-	font-size: 30px;
+	font-size: 40px;
 }

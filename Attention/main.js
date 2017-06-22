@@ -1,9 +1,7 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var r = 70;
 var num_real_balls = [1,2,3,5];
-var num_fake_balls = [2,5,5,3];
-var speed_lim = 3;
+var num_fake_balls = [3,5,5,5];
 var round = 0;
 var num_total_balls = num_real_balls[round];
 
@@ -22,18 +20,15 @@ console.log("ratio " + window.innerHeight/window.innerWidth);
 
 if (window.innerHeight > window.innerWidth){
     ctx.canvas.width  = window.innerWidth;
-    ctx.canvas.height = window.innerWidth * 0.75;
+    ctx.canvas.height = window.innerWidth * 4/3;
 }else{
     ctx.canvas.height = window.innerHeight;
-    ctx.canvas.width  = window.innerHeight * 1.33;
+    ctx.canvas.width  = window.innerHeight * 0.75;
 }
 
-//adapt canvas size
-//ctx.canvas.width  = window.innerWidth;
-//ctx.canvas.height = window.innerHeight;
 
-r = Math.floor(ctx.canvas.width * ctx.canvas.height * 0.00006);
-speed_lim = Math.floor(ctx.canvas.width * ctx.canvas.height * 0.00002);
+var r = Math.floor(ctx.canvas.width * ctx.canvas.height * 0.00005);
+var speed_lim = Math.floor(ctx.canvas.width * ctx.canvas.height * 0.00002);
 console.log("height: " + ctx.canvas.height);
 console.log("width: " + ctx.canvas.width);
 console.log("area: " + ctx.canvas.width * ctx.canvas.height);
@@ -76,12 +71,15 @@ function mouseClick(e) {
             if (i<num_real_balls[round]){
                 drawBall(x[i]-dx[i],y[i]-dy[i],"#83BF17");
                 rightBall += 1;
+                if (pressed[i] == false)
+                    attemptCount += 1;
             }
             else{
                 drawBall(x[i]-dx[i],y[i]-dy[i],"#BB0F00");
+                if (pressed[i] == false)
+                    attemptCount += 1;
             }
             pressed[i] = true;
-            attemptCount += 1;
         }
     }
 
@@ -93,10 +91,11 @@ function mouseClick(e) {
         }
         else{
             console.log("end of the game");
-            var score = (rightBall/num_real_balls.reduce(add, 0))*100;
+            var score = ((rightBall/num_real_balls.reduce(add, 0))*100).toFixed(2);
             console.log("Your score is: " + score);
-            setTimeout("window.location.href = 'http://www.drinkingbrain.com/Attention/user.html';", 2000);
-
+            localStorage.removeItem('score');
+            localStorage.setItem('score',score);
+            setTimeout("window.location.href = 'user.html';", 2000);
         }
     }
 }
@@ -177,9 +176,9 @@ function getRandomInt(min, max) {
 
 function drawScore() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var textSize = Math.floor(canvas.width * 0.05)
+    var textSize = Math.floor(canvas.width * 0.07)
     ctx.font = textSize.toString() + "px Patrick Hand SC";
-    ctx.fillStyle = "#0B99BC";
+    ctx.fillStyle = "#00CCD6";
     ctx.textAlign = "center";
     ctx.fillText("Next round starts in " + CountDown + " seconds",canvas.width/2, (canvas.height/2));
 
@@ -198,20 +197,26 @@ function drawInstructions(){
 
     var textSize = Math.floor(canvas.width * 0.03)
     ctx.font = textSize.toString() + "px Patrick Hand SC";
-    ctx.fillStyle = "#0B99BC";
+    ctx.fillStyle = "#00CCD6";
     ctx.textAlign = "center";
     ctx.fillText("Follow the circle until it stops moving, then tap on it", canvas.width/2, canvas.height*0.05);
 }
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.beginPath();
+    ctx.rect(0,0,ctx.canvas.width, ctx.canvas.height)
+    ctx.strokeStyle = "rgba(0, 0, 0, 1)";
+    ctx.stroke();
+    ctx.closePath();
 
-    if (round == 0){
-        drawInstructions();
-    }
+  //  if (round == 0){
+  //      drawInstructions();
+  //  }
 
     for (i = 0; i < num_total_balls; i++) {
-        drawBall(x[i],y[i],"#0B99BC");
+        drawBall(x[i],y[i],"#00CCD6");
 
         //colision with bounds
         if(x[i] + dx[i] > canvas.width-r || x[i] + dx[i] < r) {

@@ -9,7 +9,7 @@ $connector = mysql_connect($host,$username,$password)
 $selected = mysql_select_db("wyqhiksy_players", $connector)
 		or die("Unable to connect");
 
-$result = mysql_query("SELECT * FROM attentiondb;");
+$result = mysql_query("SELECT * FROM reactiondb;");
 
 	while( $row = mysql_fetch_assoc( $result ) ){
 	echo

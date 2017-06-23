@@ -6,27 +6,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/../css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
-
+	<link rel="stylesheet" href="data.css">
 </head>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<div class="pull-right">
-								<div class="btn-group">
-									<button type="button" class="btn btn-success btn-filter" data-target="reaction" id="attention">Attention</button>
-									<button type="button" class="btn btn-warning btn-filter" data-target="memory" id="memory">Memory</button>
-									<button type="button" class="btn btn-danger btn-filter" data-target="attention">Reaction</button>
-									<button type="button" class="btn btn-danger btn-filter" data-target="coordination">Coordination</button>
-									<button type="button" class="btn btn-default btn-filter" data-target="all">All</button>
+							<div class="col-xs-12 col-md-12">
+								<div class="btn-group" style="float:right;">
+									<button type="button" class="btn btn-memory" onclick="window.location.href='memory.php'" id="memory">Memory</button>
+									<button type="button" class="btn btn-att" onclick="window.location.href='attention.php'" id="attention">Attention</button>
+									<button type="button" class="btn btn-reaction" onclick="window.location.href='reaction.php'">Reaction</button>
+									<button type="button" class="btn btn-suprise" onclick="window.location.href='suprise.php'">Coordination</button>
 								</div>
 							</div>
+							<div class="col-xs-12 col-md-12">
+								<h2 class="game-title mem-title">MEMORY</h2>
+							</div>
+
 							<div class="table-container" >
 								<table class="table table-filter">
 									<thead>
-    								<tr>
+    								<tr class="title-row memory-row">
       								<th>#</th>
       								<th>Name</th>
       								<th>Alcohol Level</th>
@@ -38,8 +41,6 @@
 											<tr  data-status="attention">
 											</tr>
 
-											<tr data-status="memory">
-											</tr>
 
 									</tbody>
 
@@ -57,21 +58,12 @@
 
 			$(document).ready(function(){
 
+					setInterval(function(){
+						$("#show").load('data-memory.php')
+					}, 1000);
 
-				$("#attention").click(function(memoryInterval){
 
-					$(this).data('clicked', true);
-					if($("#memory").data('clicked', true)){
-						$("#memory").data('clicked', false);
-						clearInterval(memoryInterval);
-					}
-					var attentionInterval= setInterval(function(){
-						$("#show").load('data.php')
-					}, 3000);
-
-				});
-
-					$("#memory").click(function(attentionInterval){
+		/*			$("#memory").click(function(attentionInterval){
 
  					 		$(this).data('clicked', true);
 
@@ -85,7 +77,7 @@
 					 	}, 3000);
 
 
-					});
+					}); */
 
 			});
 

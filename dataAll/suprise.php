@@ -17,9 +17,9 @@
 
 							<div class="col-xs-12 col-md-12">
 								<div class="btn-group" style="float:right;">
+									<button type="button" class="btn btn-reaction" onclick="window.location.href='reaction.php'">Reaction</button>
 									<button type="button" class="btn btn-memory" onclick="window.location.href='memory.php'" id="memory">Memory</button>
 									<button type="button" class="btn btn-att" onclick="window.location.href='attention.php'" id="attention">Attention</button>
-									<button type="button" class="btn btn-reaction" onclick="window.location.href='reaction.php'">Reaction</button>
 									<button type="button" class="btn btn-suprise" onclick="window.location.href='suprise.php'">Coordination</button>
 								</div>
 							</div>

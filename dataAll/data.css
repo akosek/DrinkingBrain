@@ -3,8 +3,10 @@ body {
 }
 .game-title {
 	text-align: center;
+	margin-bottom: 35px;
+	font-size: 40px;
+	margin-top: 10px;
 }
-
 .att-title {
 	color:#DC143C;
 }

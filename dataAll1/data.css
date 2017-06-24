@@ -1,0 +1,55 @@
+body {
+	font-family: 'Patrick Hand SC', cursive;
+}
+.game-title {
+	text-align: center;
+	margin-bottom: 35px;
+	font-size: 40px;
+	margin-top: 10px;
+}
+.att-title {
+	color:#DC143C;
+}
+.mem-title {
+	color: #E6537D;
+}
+.rec-title {
+	color: #9ACD32;
+}
+.sup-title{
+	color:#20B2AA;
+}
+.title-row > th{
+	font-size: 25px;
+
+}
+.suprise-row {
+	color:#20B2AA;
+}
+.reaction-row {
+	color:#9ACD32;
+}
+.attention-row{
+	color: #DC143C;
+}
+.memory-row > th {
+	color: #E6537D;
+}
+tbody > tr > td {
+	font-size:20px;
+}
+.btn {
+	color: white;
+}
+.btn-memory {
+	background-color:#E6537D;
+}
+.btn-att {
+	background-color:#DC143C;
+}
+.btn-reaction {
+	background-color: #9ACD32;
+}
+.btn-suprise {
+	background-color: #20B2AA;
+}

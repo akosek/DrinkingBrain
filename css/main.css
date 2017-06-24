@@ -238,3 +238,18 @@ label{
 .intruction-text-up {
 	margin-top: 6px;
 }
+@media (max-width:990px)  {
+	.game-box{
+		margin-top: 30%;
+	}
+}
+@media (max-width:690px)  {
+	.game-box{
+		margin-top: 35%;
+	}
+}
+@media (max-width:480px) {
+	.game-box {
+			margin-top: 20%;
+		}
+}

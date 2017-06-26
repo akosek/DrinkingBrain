@@ -1,7 +1,7 @@
     $(document).ready(function(){
-
+        
         var score = localStorage.getItem('score');
-        document.getElementById("title").innerHTML = "Your score in attention: " + score;
+        document.getElementById("title").innerHTML = "Your score in perception: " + score;
 
         $('#submit').click(function(){
             var name = $('#name').val();

@@ -3,12 +3,14 @@ body
 .container 		{
   font-family: 'Patrick Hand SC', cursive;
   width:800px;
+/*  margin:30px auto 0; */
   display:block;
   background:#FFF;
   padding:10px 50px 50px;
 
+
 }
-h2 		 {
+h2{
   text-align:center;
   margin-bottom:50px;
 }
@@ -17,34 +19,14 @@ h2 small {
   color:#888;
   display:block;
 }
+
 .game-title{
 	text-align: center;
-  color:#B9006E;
+  color:#20B2AA;
   font-size:60px;
   margin-bottom: 40px;
 }
-/* BUTTON */
-.animate
-{
-	transition: all 0.1s;
-	-webkit-transition: all 0.1s;
-}
 
-.action-button
-{
-	position: relative;
-	padding: 10px 30px;
-	border-radius: 10px;
-	font-family: 'Patrick Hand SC', cursive;
-	font-size: 38px;
-	color: #FFF;
-	text-decoration: none;
-}
-.red{
-  background-color: #B9006E;
-  border-bottom: 5px solid #880044;
-  text-shadow: 0px -2px #F6416C;
-}
 
 /* form starting stylings ------------------------------- */
 .group 			  {
@@ -79,7 +61,7 @@ label 				 {
 .form-input:focus ~ label, .form-input:valid ~ label 		{
   top:-20px;
   font-size:30px;
-  color: #B9006E;
+  color: #20B2AA;
 }
 
 /* BOTTOM BARS ================================= */
@@ -90,7 +72,7 @@ label 				 {
   width:0;
   bottom:1px;
   position:absolute;
-  background: #B9006E;
+  background: #20B2AA;
   transition:0.5s ease all;
   -moz-transition:0.5s ease all;
   -webkit-transition:0.5s ease all;
@@ -117,6 +99,27 @@ label 				 {
   pointer-events:none;
   opacity:0.5;
 }
+.animate
+{
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
+
+.action-button
+{
+	position: relative;
+	padding: 10px 30px;
+	border-radius: 10px;
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 38px;
+	color: #FFF;
+	text-decoration: none;
+}
+.blue {
+  background-color: #20B2AA;
+	border-bottom: 4px solid #228a93;
+	text-shadow: 0px -2px #228a93;
+}
 
 /* active state */
 .form-input:focus ~ .highlight {
@@ -127,14 +130,14 @@ label 				 {
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes .form-inputHighlighter {
-	from { background:#E6537D; }
+	from { background:#9ACD32; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes .form-inputHighlighter {
-	from { background:#E6537D; }
+	from { background:#9ACD32; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes .form-inputHighlighter {
-	from { background:#E6537D; }
+	from { background:#9ACD32; }
   to 	{ width:0; background:transparent; }
 }

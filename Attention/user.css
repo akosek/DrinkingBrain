@@ -22,11 +22,32 @@ h2 small {
 
 .game-title{
 	text-align: center;
-  color:#00CCD6;
+  color:#DC143C;
   font-size:60px;
   margin-bottom: 40px;
 }
+.animate
+{
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
 
+.action-button
+{
+	position: relative;
+	padding: 10px 30px;
+	border-radius: 10px;
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 38px;
+	color: #FFF;
+	text-decoration: none;
+}
+.red{
+  background-color: #DC143C;
+  border-bottom: 5px solid #880044;
+	text-shadow: 0px -2px #F6416C;
+
+}
 
 /* form starting stylings ------------------------------- */
 .group 			  {
@@ -61,7 +82,7 @@ label 				 {
 .form-input:focus ~ label, .form-input:valid ~ label 		{
   top:-20px;
   font-size:30px;
-  color:#00CCD6;
+  color:#DC143C;
 }
 
 /* BOTTOM BARS ================================= */
@@ -72,7 +93,7 @@ label 				 {
   width:0;
   bottom:1px;
   position:absolute;
-  background: #00CCD6;
+  background: #DC143C;
   transition:0.5s ease all;
   -moz-transition:0.5s ease all;
   -webkit-transition:0.5s ease all;
@@ -109,14 +130,14 @@ label 				 {
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes .form-inputHighlighter {
-	from { background:#00CCD6; }
+	from { background:#DC143C; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes .form-inputHighlighter {
-	from { background:#00CCD6; }
+	from { background:#DC143C; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes .form-inputHighlighter {
-	from { background:#00CCD6; }
+	from { background:#DC143C; }
   to 	{ width:0; background:transparent; }
 }

@@ -5,7 +5,7 @@ var colorName = [
     "Red",
     "Green",
     "Yellow",
-    "Purple"
+    "Pink"
 ];
 
 var colorVisual = [
@@ -13,7 +13,7 @@ var colorVisual = [
  {key: "Red", value: "#C91B26",},
  {key: "Green", value: " #83BF17"},
  {key: "Yellow", value: "#f1c40f"},
- {key: "Purple", value: "#4B256D"}
+ {key: "Pink", value: "#FF69B4"}
 ];
 
 var timerBackground;
@@ -80,8 +80,8 @@ $(window).on("load", function oneRound(){
 
              document.getElementById("colorToFind").innerHTML = goalColor + " appears";
              changeColor();
-             
-           
+
+
 
 
              document.getElementById("stop").addEventListener("click", mouseClick);

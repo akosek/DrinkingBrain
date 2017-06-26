@@ -27,7 +27,28 @@ h2 small {
   margin-bottom: 40px;
 }
 
+/* BUTTON */
+.animate
+{
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
 
+.action-button
+{
+	position: relative;
+	padding: 10px 30px;
+	border-radius: 10px;
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 38px;
+	color: #FFF;
+	text-decoration: none;
+}
+.blue{
+  background-color: #B9006E;
+  border-bottom: 5px solid #880044;
+  text-shadow: 0px -2px #F6416C;
+}
 /* form starting stylings ------------------------------- */
 .group 			  {
   position:relative;

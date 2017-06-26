@@ -16,13 +16,14 @@ if(isset($_POST["name"]))
     $age =  mysqli_real_escape_string($conn, $_POST["age"]);
     $score =  mysqli_real_escape_string($conn, $_POST["score"]);
     $query = "INSERT INTO memorydb(name, alcohol, age, score) VALUES ('".$name."', '".$alcohol."', '".$age."', '".$score."')";
+
     if(mysqli_query($conn, $query))
     {
-        echo '<p style="color:green;">Data Inserted OK..</p>';
+        echo '<p style="color:green;font-size:70px;">Score sent!</p>';
     }
     else
     {
-        echo '<p style="color:red;">not OK..</p>';
+        echo '<p style="color:red;font-size:70px;">not OK..</p>';
     }
 }
 ?>

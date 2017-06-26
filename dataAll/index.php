@@ -62,22 +62,6 @@
 					}, 3000);
 
 
-		/*			$("#memory").click(function(attentionInterval){
-
- 					 		$(this).data('clicked', true);
-
-						 if($("#attention").data('clicked', true)){
-							 $('#attention').data('clicked', false);
-							 clearInterval(attentionInterval);
-						 }
-
-						 var memoryInterval= setInterval(function(){
-					 		$("#show").load('memory-data.php')
-					 	}, 3000);
-
-
-					}); */
-
 			});
 
 

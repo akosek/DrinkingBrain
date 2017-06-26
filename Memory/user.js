@@ -1,5 +1,5 @@
     $(document).ready(function(){
-        
+
         var score = localStorage.getItem('score');
         document.getElementById("title").innerHTML = "Your score in memory: " + score;
 
@@ -11,23 +11,30 @@
 
             if(name == '' || alcohol == '' || age == '')
             {
-                $('#return').html('<h4 style="color:red;">Required All Fields..</h4>')
+                $('#return').html('<h4 style="color:red;font-size:70px;">Required All Fields..</h4>')
             }
             else
             {
-                $.ajax({
-                    url:"insert.php",
-                    method:"POST",
-                    data:query,
-                    success: function(data){
-                        $('form').trigger("reset");
-                        $('#return').fadeIn().html(data);
-                        setTimeout(function(){
-                            $('#return').fadeOut("slow");
-                        },6000);
-                    }
-                });
-                console.log("entra en caca");
+                if(isNaN(alcohol)||isNaN(age))
+                {
+                $('#return').html('<h4 style="color:red;font-size:70px;">Age and alcohol must be numbers</h4>')
+                }
+                else{
+                    $.ajax({
+                        url:"insert.php",
+                        method:"POST",
+                        data:query,
+                        success: function(data){
+                            $('form').trigger("reset");
+                            $('#return').fadeIn().html(data);
+                            setTimeout(function(){
+                                $('#return').fadeOut("slow");
+                                window.location.href = '../index.html'
+
+                            },3000);
+                        }
+                    });
+                }
             }
         });
     });

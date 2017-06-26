@@ -31,9 +31,9 @@
 								<table class="table table-filter">
 									<thead>
     								<tr class="title-row suprise-row">
-      								<th>#</th>
+      								<th>Date</th>
       								<th>Name</th>
-      								<th>Alcohol Level</th>
+      								<th>Alcohol</th>
       								<th>Age</th>
 											<th>Score</th>
     								</tr>

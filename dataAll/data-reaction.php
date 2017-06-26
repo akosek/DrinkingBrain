@@ -14,7 +14,7 @@ $result = mysql_query("SELECT * FROM reactiondb;");
 	while( $row = mysql_fetch_assoc( $result ) ){
 	echo
 		"<tr>
-			<td>{$row['#']}</td>
+			<td>{$row['date']}</td>
 			<td>{$row['name']}</td>
 			<td>{$row['alcohol']}</td>
 			<td>{$row['age']}</td>

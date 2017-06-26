@@ -10,16 +10,19 @@ html, body {
 .wrap {
 	min-height: 100%;
 }
-.main{
+/* #main{
 	overflow:auto;
  	padding-bottom:150px;
+} */
+#main {
+	padding-top: 10px;
 }
 nav{
 	background-color: white;
 }
 .fb-icon {
 	font-size: 30px;
-	margin-top: 10px;
+	margin-top: 18px;
 	color:#00A9E0;
 }
 
@@ -28,7 +31,7 @@ footer {
   margin-top: -50px; /* negative value of footer height */
   height: 50px;
   clear:both;
-  padding-top:20px;
+	padding-top:20px;
 }
 .navbar-brand.navbar-name{
 	color: #20b2aa;

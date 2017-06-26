@@ -18,7 +18,7 @@
 								<div class="btn-group" style="float:right;">
 									<button type="button" class="btn btn-reaction" onclick="window.location.href='reaction.php'">Reaction</button>
 									<button type="button" class="btn btn-memory" onclick="window.location.href='memory.php'" id="memory">Memory</button>
-									<button type="button" class="btn btn-att" onclick="window.location.href='attention.php'" id="attention">Attention</button>									
+									<button type="button" class="btn btn-att" onclick="window.location.href='attention.php'" id="attention">Attention</button>
 									<button type="button" class="btn btn-suprise" onclick="window.location.href='suprise.php'">Coordination</button>
 								</div>
 							</div>
@@ -30,9 +30,9 @@
 								<table class="table table-filter">
 									<thead>
     								<tr class="title-row memory-row">
-      								<th>#</th>
+      								<th>Date</th>
       								<th>Name</th>
-      								<th>Alcohol Level</th>
+      								<th>Alcohol</th>
       								<th>Age</th>
 											<th>Score</th>
     								</tr>
@@ -62,22 +62,6 @@
 						$("#show").load('data-memory.php')
 					}, 1000);
 
-
-		/*			$("#memory").click(function(attentionInterval){
-
- 					 		$(this).data('clicked', true);
-
-						 if($("#attention").data('clicked', true)){
-							 $('#attention').data('clicked', false);
-							 clearInterval(attentionInterval);
-						 }
-
-						 var memoryInterval= setInterval(function(){
-					 		$("#show").load('memory-data.php')
-					 	}, 3000);
-
-
-					}); */
 
 			});
 

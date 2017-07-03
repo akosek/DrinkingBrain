@@ -6,6 +6,7 @@
    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css">
@@ -13,10 +14,13 @@
 </head>
 
 <body id="body-all">
+  <div class="container">
+      <div class="row">
+      <div class="col-xs-12 col-md-12">
 <script>
-    
+
    // choose icons from: https://afeld.github.io/emoji-css/
-                   
+
     var figures = [
                    [{key:"panda", value: "em em-panda_face"},
                    {key:"skull", value: "em em-skull"},
@@ -25,7 +29,7 @@
                     {key:"strawberry", value: "em em-strawberry"},
                     {key:"heart", value: "em em-heart"}]
                   ];
-                  
+
     var numRows = 12;
     var numColums = 10;
     var idx = 0;
@@ -49,24 +53,24 @@
 
     console.log("chosen figure: " + figures[chosenSet][chosenFigure].key);
     console.log("target idx: " + targetIdx);
-    
+
     document.write('<div class="container">');
-   
+
 
     for (jj=0; jj<numRows; jj++){
-        
+
         if (jj==0){
             document.write('<div id="top" class="row">');
         }
         else{
             document.write('<div class="row">');
         }
-        
+
         document.write('<div class="game-container">');
-        
+
         if (jj==0)
             document.write('<h1 id="title">Find the ' + figures[chosenSet][chosenFigure].key + '</h1>');
-            
+
         for (ii=0; ii<numColums; ii++){
             if (idx == targetIdx){
                 document.write('<i id="' + targetIdx + '" class="' + figures[chosenSet][chosenFigure].value + '"></i>');
@@ -80,24 +84,24 @@
             }
             idx += 1;
         }
-        
+
         document.write('</div>');
         document.write('</div>');
     }
 
     document.write(' </div>');
- 
+
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     function mouseClick(){
         console.log("click on " + figures[chosenSet][chosenFigure].key);
-        
+
         endTime = new Date().getTime();
         endSeconds = (((endTime/1000)).toFixed(2));
         reactionTime = ((endSeconds - firstSeconds).toFixed(2));
-        
+
         swal({
              title: "Good job!",
              text: "Your found it in " + reactionTime + " seconds",
@@ -120,8 +124,8 @@
                     }
                 }
                 console.log(scores[round]);
-             
-             
+
+
                 if (round < numRounds){
                     //restart the game
                     idx = 0;
@@ -147,13 +151,13 @@
                     }
                 }
                 else{
-             
+
                     total_score = scores.reduce(add, 0).toFixed(2);
                     localStorage.removeItem('score');
                     localStorage.setItem('score',total_score);
                     window.location.href = 'user.html';
                 }
-        
+
                 round +=1;
                 startTime = new Date().getTime();
                 firstSeconds = ((startTime/1000)).toFixed(2);
@@ -166,5 +170,8 @@
     }
 
     </script>
+  </div>
+</div>
+</div>
 </body>
 </html>
